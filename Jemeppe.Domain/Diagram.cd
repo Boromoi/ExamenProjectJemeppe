@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Jemeppe.Domain.Room">
+    <Position X="6" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAgBAAAAAAACAQAAAAAAAAAAAQAAAAAAEA=</HashCode>
+      <FileName>Room.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jemeppe.Domain.Customer">
+    <Position X="1" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAAAAAAAAAQAQAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jemeppe.Domain.Booking">
+    <Position X="3.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAACAAAAAAAAACAAAAAAAAAAABAAAAAAAEAAAAA=</HashCode>
+      <FileName>Booking.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Jemeppe.Domain.RoomType">
+    <Position X="8.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABCA=</HashCode>
+      <FileName>RoomType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
