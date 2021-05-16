@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JemeppeWeb", "JemeppeWeb\JemeppeWeb.csproj", "{FA70DB28-5135-43C6-9DE2-979B3504443F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jemeppe.Domain", "Jemeppe.Domain\Jemeppe.Domain.csproj", "{A277067A-EC5D-4D23-AC92-C2F1D8214ABB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jemeppe.Domain", "Jemeppe.Domain\Jemeppe.Domain.csproj", "{A277067A-EC5D-4D23-AC92-C2F1D8214ABB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jemeppe.Data", "Jemeppe.Data\Jemeppe.Data.csproj", "{F0970488-290D-4D4B-8ACD-0BB4FD88CCB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jemeppe.Data", "Jemeppe.Data\Jemeppe.Data.csproj", "{F0970488-290D-4D4B-8ACD-0BB4FD88CCB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jemeppe.Web", "Jemeppe.Web\Jemeppe.Web.csproj", "{36EEA7A7-40E7-4F70-B33A-1F8E88B5EB73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jemeppe.Test", "Jemeppe.Test\Jemeppe.Test.csproj", "{D4B4228B-16DD-4A67-A909-5CD89DD6D64A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FA70DB28-5135-43C6-9DE2-979B3504443F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FA70DB28-5135-43C6-9DE2-979B3504443F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FA70DB28-5135-43C6-9DE2-979B3504443F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FA70DB28-5135-43C6-9DE2-979B3504443F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A277067A-EC5D-4D23-AC92-C2F1D8214ABB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A277067A-EC5D-4D23-AC92-C2F1D8214ABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A277067A-EC5D-4D23-AC92-C2F1D8214ABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +25,14 @@ Global
 		{F0970488-290D-4D4B-8ACD-0BB4FD88CCB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0970488-290D-4D4B-8ACD-0BB4FD88CCB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0970488-290D-4D4B-8ACD-0BB4FD88CCB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36EEA7A7-40E7-4F70-B33A-1F8E88B5EB73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36EEA7A7-40E7-4F70-B33A-1F8E88B5EB73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36EEA7A7-40E7-4F70-B33A-1F8E88B5EB73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36EEA7A7-40E7-4F70-B33A-1F8E88B5EB73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4B4228B-16DD-4A67-A909-5CD89DD6D64A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4B4228B-16DD-4A67-A909-5CD89DD6D64A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4B4228B-16DD-4A67-A909-5CD89DD6D64A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4B4228B-16DD-4A67-A909-5CD89DD6D64A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

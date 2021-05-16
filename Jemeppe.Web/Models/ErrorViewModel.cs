@@ -1,6 +1,6 @@
 using System;
 
-namespace JemeppeWeb.Models
+namespace Jemeppe.Web.Models
 {
     public class ErrorViewModel
     {

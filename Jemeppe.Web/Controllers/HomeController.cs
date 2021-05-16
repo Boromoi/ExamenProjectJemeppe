@@ -1,4 +1,4 @@
-﻿using JemeppeWeb.Models;
+﻿using Jemeppe.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace JemeppeWeb.Controllers
+namespace Jemeppe.Web.Controllers
 {
     public class HomeController : Controller
     {
