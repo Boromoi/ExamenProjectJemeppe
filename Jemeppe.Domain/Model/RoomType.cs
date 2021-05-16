@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Jemeppe.Domain
+namespace Jemeppe.Domain.Model
 {
     /// <summary>
     /// Types of room available

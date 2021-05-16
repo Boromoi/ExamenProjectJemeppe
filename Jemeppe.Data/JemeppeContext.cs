@@ -5,9 +5,9 @@ namespace Jemeppe.Data
 {
     public class JemeppeContext:DbContext
     {
-        public DbSet<Room> Rooms { get; set; }
-        public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Domain.Model.Room> Rooms { get; set; }
+        public DbSet<Domain.Model.Booking> Bookings { get; set; }
+        public DbSet<Domain.Model.Customer> Customers { get; set; }
         public JemeppeContext(DbContextOptions dbContextOptions): base(dbContextOptions)
         {
             
