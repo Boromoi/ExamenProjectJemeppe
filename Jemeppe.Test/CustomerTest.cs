@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Jemeppe.Domain.Logic;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -11,14 +12,16 @@ namespace Jemeppe.Test
     [TestClass]
     public class CustomerTest
     {
-        public static Domain.Model.Customer CreateDummyCustomer1()
+        public static Data.Model.Customer CreateDummyCustomer1()
         {
-            var customer = new Domain.Model.Customer
+            var hashed = Domain.Logic.CustomerSupport.HashPassword("MijGeheim001");
+
+            var customer = new Data.Model.Customer
             {
                 Address = "Kerkstraat 23, Amsterdam",
                 Email = "Piet.Klaasen@hotmail.com",
                 Name = "Piet Klaasen",
-                PasswordHash = "ToBeEncrypted",
+                PasswordHash = hashed,
                 PhoneNumber = "1234567890"
             };
             return customer;
@@ -29,12 +32,40 @@ namespace Jemeppe.Test
         {
             var builder = new DbContextOptionsBuilder();
             builder.UseInMemoryDatabase("Customers");
-            using (var context = new Jemeppe.Data.JemeppeContext(builder.Options))
+            using (var context = new Data.JemeppeContext(builder.Options))
             {
                 var customer = CreateDummyCustomer1();
                 context.Customers.Add(customer);
                 Assert.AreEqual(EntityState.Added, context.Entry(customer).State);
             }
+        }
+
+        [TestMethod]
+        public void GetCustomerByEmail()
+        {
+            var builder = new DbContextOptionsBuilder();
+            builder.UseInMemoryDatabase("Customers");
+            using (var context = new Data.JemeppeContext(builder.Options))
+            { 
+                //Add customer with email "Piet.Klaasen@hotmail.com"
+                var support = new CustomerSupport(context);
+                var customer = CreateDummyCustomer1();
+                context.Customers.Add(customer);
+                context.SaveChanges();
+
+                //Retrieve customer with email "Piet.Klaasem@hotmail.com
+                var result = support.GetCustomer("Piet.Klaasen@hotmail.com");
+                
+                //Assert Customer data is as expected
+                Assert.IsTrue(string.Equals(result.Name, "Piet Klaasen"));
+            }
+        }
+
+        [TestMethod]
+        public void HashPassword()
+        {
+            var hashed = CustomerSupport.HashPassword("MijGeheim001");
+            Assert.IsNotNull(hashed);
         }
     }
 }

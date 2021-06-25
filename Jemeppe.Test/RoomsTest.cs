@@ -6,9 +6,9 @@ namespace Jemeppe.Test
     [TestClass]
     public class RoomsTest
     {
-        public static Domain.Model.Room CreateDummyRoom1()
+        public static Data.Model.Room CreateDummyRoom1()
         {
-            var room = new Domain.Model.Room
+            var room = new Data.Model.Room
             {
                 Name = "De Rode Kamer",
                 HasToilet = true,

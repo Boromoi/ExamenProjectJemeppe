@@ -5,11 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="microsoft.entityframeworkcore.sqlserver" Version="5.0.6" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Jemeppe.Domain\Jemeppe.Domain.csproj" />
+    <PackageReference Include="microsoft.entityframeworkcore.sqlserver" Version="5.0.7" />
   </ItemGroup>
 
 </Project>

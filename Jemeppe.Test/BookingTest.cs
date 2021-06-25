@@ -11,9 +11,9 @@ namespace Jemeppe.Test
     [TestClass]
     public class BookingTest
     {
-        public static Domain.Model.Booking CreateDummyBooking1(Domain.Model.Customer customer, Domain.Model.Room room)
+        public static Data.Model.Booking CreateDummyBooking1(Data.Model.Customer customer, Data.Model.Room room)
         {
-            var booking = new Domain.Model.Booking();
+            var booking = new Data.Model.Booking();
             booking.Customer = customer;
             booking.Room = room;
             booking.Startdate = DateTime.Now.AddDays(1);
