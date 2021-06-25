@@ -1,44 +1,116 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400" rel="stylesheet">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Jemeppe.Web</title>
+    <title>@ViewData["Title"] - Jemeppe</title>
+    <script src="https://kit.fontawesome.com/c2553663f4.js" crossorigin="anonymous"></script>
+    <link rel=”stylesheet” href=”~/lib/bootstrap/dist/css/bootstrap.css”>
+    <link rel=”stylesheet” href=”~/lib/bootstrap/dist/css/bootstrap-responsive.css”>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Jemeppe.Web</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
+        @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Jemeppe.Web</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SignIn">SignIn</a>
+                            </li>
+                        </ul>
+                        <partial name="_LoginPartial" />
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>*@
+
+        @*
+            NavBar
+        *@
+        <div class="sizecontainer">
+            <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+                <div class="container-fluid">
+                    <img src="~/assets/images/jemepe_logo_trans.png" class="navbar-brand logo_photo"/>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contacts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="SignIn">Login/Register</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - Jemeppe.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    @*
+        Footer
+    *@
+    <footer>
+        <div class="inner_footer">
+            <div class="logo_container">
+                <img src="~/assets/images/jemepe_logo_trans.png" alt="logo" class="logo_photo"/>
+            </div>
+
+            <div class="footer_third">
+                <h1>Need help?</h1>
+                <a asp-area="" asp-controller="Home" asp-action="Contact">Contacts</a>
+                <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy Policy</a>
+            </div>
+
+            <div class="footer_third">
+                <h1>More</h1>
+                <a href="#">Store</a>
+                <a href="#">Appointment</a>
+                <a href="#">Contacts</a>
+                <a href="#">About Us</a>
+            </div>
+
+            <div class="footer_third">
+                <h1>Follow us</h1>
+                <ol>
+                    <li><a href="http://facebook.com/"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="http://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="http://instagram.com/"><i class="fa fa-instagram"></i></a></li>
+                </ol>
+                <span>
+                    &copy; Barbershop<br>
+                    Netherlands<br>
+                    Reguliersgracht 95<br>
+                    1335 AM Almere
+                </span>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -28,6 +28,17 @@ namespace Jemeppe.Web.Controllers
             return View();
         }
 
+        // GET: /Account/Login
+        public IActionResult SignIn()
+        {
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
