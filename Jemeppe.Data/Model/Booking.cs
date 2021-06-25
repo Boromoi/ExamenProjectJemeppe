@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Jemeppe.Domain.Model
+namespace Jemeppe.Data.Model
 {
     /// <summary>
     /// Holds the booking the customer made for a certain period on a room.

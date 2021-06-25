@@ -11,7 +11,7 @@ namespace Jemeppe.Test
     [TestClass]
     public class GenerateDatabase
     {
-        //[Ignore]
+        [Ignore]
         [TestMethod]
         public void GenerateCleanDB()
         {
