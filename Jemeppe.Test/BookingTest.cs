@@ -25,7 +25,7 @@ namespace Jemeppe.Test
         public void CreateANewBooking()
         {
             var room = RoomsTest.CreateDummyRoom1();
-            var customer = CustomerTest.CreateDummyCustomer1();
+            var customer = CustomerTest.CreateNewCustomer();
 
             var builder = new DbContextOptionsBuilder();
             builder.UseInMemoryDatabase("Booking");

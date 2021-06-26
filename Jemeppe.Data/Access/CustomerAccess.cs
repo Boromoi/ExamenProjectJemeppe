@@ -8,25 +8,14 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Jemeppe.Domain.Logic
+namespace Jemeppe.Data.Access
 {
-    public class CustomerSupport
+    public class CustomerAccess
     {
         JemeppeContext _context;
-        public CustomerSupport(JemeppeContext context)
+        public CustomerAccess(JemeppeContext context)
         {
             _context = context;
-        }
-        /// <summary>
-        /// Hash the customer password
-        /// </summary>
-        public static byte[] HashPassword(string password)
-        {
-            byte[] data = new byte[256];
-            byte[] result;
-            SHA256 shaM = new SHA256Managed();
-            result = shaM.ComputeHash(data);
-            return result;
         }
 
         public Customer GetCustomer(string email)
