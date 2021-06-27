@@ -13,13 +13,13 @@ namespace Jemeppe.Data.Model
         public RoomType RoomType { get; set; }
 
 
-        public bool HasToilet { get; set; }
+        public bool? HasToilet { get; set; }
 
 
-        public bool HasShower { get; set; }
+        public bool? HasShower { get; set; }
 
 
-        public bool HasSink { get; set; }
+        public bool? HasSink { get; set; }
 
 
         public double Price { get; set; }
