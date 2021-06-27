@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace Jemeppe.Data.Access
 {
+    /// <summary>
+    /// Contains all data access methods needed for Create Read Update and Delete of Customers
+    /// </summary>
     public class CustomerAccess
     {
         JemeppeContext _context;

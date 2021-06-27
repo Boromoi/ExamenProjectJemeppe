@@ -24,7 +24,7 @@ namespace Jemeppe.Test
         [TestMethod]
         public void CreateANewBooking()
         {
-            var room = RoomsTest.CreateDummyRoom1();
+            var room = RoomsTest.CreateDeRodeKamer();
             var customer = CustomerTest.CreateNewCustomer();
 
             var builder = new DbContextOptionsBuilder();
