@@ -18,22 +18,25 @@ namespace Jemeppe.Web.Controllers
             _logger = logger;
         }
 
+        //De main page waar je op begint.
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        //Waar je alle kamers kan zien page.
+        public IActionResult Rooms()
         {
             return View();
         }
 
-        // GET: /Account/Login
+        //Login-Register Page.
         public IActionResult SignIn()
         {
             return View();
         }
 
+        //De page waar je al het contact info vind van het hotel.
         public IActionResult Contact()
         {
             return View();

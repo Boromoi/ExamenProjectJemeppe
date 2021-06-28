@@ -37,6 +37,12 @@ main.pb-3 {
     height: 96px;
 }
 
+/*Carousal Scroller*/
+img.Imagescroller {
+    width: 996px;
+    height: 556px;
+}
+
 /* NavBar */
 * {
     margin: 0;
