@@ -1,6 +1,9 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400" rel="stylesheet">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,30 +17,6 @@
 </head>
 <body>
     <header>
-        @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-                <div class="container">
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Jemeppe.Web</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                        <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SignIn">SignIn</a>
-                            </li>
-                        </ul>
-                        <partial name="_LoginPartial" />
-                    </div>
-                </div>
-            </nav>*@
-
         @*
             NavBar
         *@
@@ -87,12 +66,12 @@
             <div class="footer_third">
                 <h1>Need help?</h1>
                 <a asp-area="" asp-controller="Home" asp-action="Contact">Contacts</a>
-                <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy Policy</a>
+                <a href="#">Privacy Policy</a>
             </div>
 
             <div class="footer_third">
                 <h1>More</h1>
-                <a href="#">Store</a>
+                <a asp-area="" asp-controller="Home" asp-action="Rooms">Store</a>
                 <a href="#">Appointment</a>
                 <a href="#">Contacts</a>
                 <a href="#">About Us</a>
@@ -106,7 +85,7 @@
                     <li><a href="http://instagram.com/"><i class="fa fa-instagram"></i></a></li>
                 </ol>
                 <span>
-                    &copy; Barbershop<br>
+                    &copy; Jemeppe<br>
                     Netherlands<br>
                     Reguliersgracht 95<br>
                     1335 AM Almere

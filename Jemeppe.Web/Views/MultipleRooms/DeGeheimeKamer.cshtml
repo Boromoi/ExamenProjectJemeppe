@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "De Geheime Kamer";
+}
+<section class="booking">
+    <div class="container">
+        <div class="row">
+            <form action="" class="form">
+                <div class="col-6">
+                    <div class="input-group">
+                        <label for="check-in" class="input-label">Check in</label>
+                        <input type="date" class="input" id="check-in" />
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="input-group">
+                        <label for="check-out" class="input-label">Check out</label>
+                        <input type="date" class="input" id="check-out" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<div class="small-container single-product">
+    <div class="row test">
+        <div class="col-6">
+            <img src="~/assets/images/TweePersoonsKamer3.jpg" class="DeRodeKamerImage" />
+        </div>
+        <div class="col-6">
+            @*<p>Home / De Rode Kamer</p>*@
+            <h1>De Geheime Kamer</h1>
+            <h4>$100/Night</h4>
+            <a class="btn btn-dark" asp-area="" asp-controller="MultipleRooms" asp-action="DeGeheimeKamer">
+                Book now
+                <span class="dots"><i class="fas fa-ellipsis-h"></i></span>
+            </a>
+            <br />
+            <h3>Product Details</h3>
+            <p>Van deze kamer, genoemd naar "the Chamber of Secrets" van Joanne Rowling, is alleen de prijs bekend.</p>
+            <p>The room is made to accommodate an unknown amount of people.<br /> It maybe has a toilet.    <i class="fa fa-square-o"></i><br /> It maybe has a douche.  <i class="fa fa-square-o"></i><br /> It maybe has a sink.     <i class="fa fa-square-o"></i></p>
+        </div>
+    </div>
+</div>
+@*email, start eind datum, naam kamer*@
