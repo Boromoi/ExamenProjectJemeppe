@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "De Derde Kamer";
+}
+<section class="booking">
+    <div class="container">
+        <div class="row">
+            <form action="" class="form">
+                <div class="col-6">
+                    <div class="input-group">
+                        <label for="check-in" class="input-label">Check in</label>
+                        <input type="date" class="input" id="check-in" />
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="input-group">
+                        <label for="check-out" class="input-label">Check out</label>
+                        <input type="date" class="input" id="check-out" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<div class="small-container single-product">
+    <div class="row test">
+        <div class="col-6">
+            <img src="~/assets/images/FamilyKamer1.jpg" class="DeRodeKamerImage" />
+        </div>
+        <div class="col-6">
+            @*<p>Home / De Rode Kamer</p>*@
+            <h1>De Derde Kamer</h1>
+            <h4>$120/Night</h4>
+            <a class="btn btn-dark" asp-area="" asp-controller="MultipleRooms" asp-action="DeDerdeKamer">
+                Book now
+                <span class="dots"><i class="fas fa-ellipsis-h"></i></span>
+            </a>
+            <br />
+            <h3>Product Details</h3>
+            <p>Deze kamer, genoemd naar een roman van Jan Terlouw, is geschikt voor alle mensen van alle gezindten</p>
+            <p>The room is made to accommodate a family.<br /> It has a toilet.    <i class="fa fa-check-square-o"></i><br /> It has a douche.  <i class="fa fa-check-square-o"></i><br /> It has a sink.     <i class="fa fa-check-square-o"></i></p>
+        </div>
+    </div>
+</div>
+@*email, start eind datum, naam kamer*@
