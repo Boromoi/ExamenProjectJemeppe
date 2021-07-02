@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,20 +9,8 @@ namespace Jemeppe.Data.Model
     /// <summary>
     /// Customer information
     /// </summary>
-    public class Customer
-    {
-        public string Email { get; set; }
-
-        public byte[] PasswordHash { get; set; }
-
-        public string Name { get; set; }
-
-        public string Address { get; set; }
-
-        public string PhoneNumber { get; set; }
-
-        public int Id { get; set; }
-        
+    public class Customer: IdentityUser
+    { 
         public List<Booking> Bookings { get; set; }
     }
 }

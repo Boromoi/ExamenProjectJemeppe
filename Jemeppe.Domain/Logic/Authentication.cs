@@ -31,20 +31,20 @@ namespace Jemeppe.Domain.Logic
             return data;
         }
 
-        /// <summary>
-        /// Validates that the customer with the specified email address has entered the correct password
-        /// </summary>
-        public bool IsValid(string email, string password)
-        {
-            //Get the customer by email
-            var customer = _customerAccess.GetCustomer(email);
+        ///// <summary>
+        ///// Validates that the customer with the specified email address has entered the correct password
+        ///// </summary>
+        //public bool IsValid(string email, string password)
+        //{
+        //    //Get the customer by email
+        //    var customer = _customerAccess.GetCustomer(email);
 
-            //Hash the password
-            var hashedExpectedPassword = HashPassword(password);
-            var hasedActualPassword = customer.PasswordHash;
+        //    //Hash the password
+        //    var hashedExpectedPassword = HashPassword(password);
+        //    var hasedActualPassword = customer.PasswordHash;
 
-            //Check and resturn: hashed result is equal
-            return hashedExpectedPassword.SequenceEqual(hasedActualPassword);
-        }
+        //    //Check and resturn: hashed result is equal
+        //    return hashedExpectedPassword.SequenceEqual(hasedActualPassword);
+        //}
     }
 }

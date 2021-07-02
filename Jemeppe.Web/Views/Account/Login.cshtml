@@ -1,0 +1,36 @@
+﻿@model Jemeppe.Web.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Login Page";
+}
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
+<form method="post">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger" />
+            <div class="form-group">
+                <input type="text" asp-for="UserName" placeholder="Your Email" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="password" asp-for="Password" placeholder="Password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input asp-for="RememberMe" type="checkbox" class="form-check-input" />
+                    <label asp-for="RememberMe" class="form-check-label">Remember Me?</label>
+                </div>
+                <span asp-validation-for="RememberMe" class="text-danger" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+</form>
+
