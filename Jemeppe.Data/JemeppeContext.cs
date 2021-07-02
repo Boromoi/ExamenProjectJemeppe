@@ -1,8 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Jemeppe.Data.Model;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace Jemeppe.Data
 {
-    public class JemeppeContext:DbContext
+    public class JemeppeContext: IdentityDbContext<Customer>
     {
         public DbSet<Data.Model.Room> Rooms { get; set; }
         public DbSet<Data.Model.Booking> Bookings { get; set; }

@@ -21,20 +21,20 @@ namespace Jemeppe.Test
             return booking;
         }
 
-        [TestMethod]
-        public void CreateANewBooking()
-        {
-            var room = RoomsTest.CreateDeRodeKamer();
-            var customer = CustomerTest.CreateNewCustomer();
+        //[TestMethod]
+        //public void CreateANewBooking()
+        //{
+        //    var room = RoomsTest.CreateDeRodeKamer();
+        //    var customer = CustomerTest.CreateNewCustomer();
 
-            var builder = new DbContextOptionsBuilder();
-            builder.UseInMemoryDatabase("Booking");
-            using (var context = new Jemeppe.Data.JemeppeContext(builder.Options))
-            {
-                var booking = CreateDummyBooking1(customer, room);
-                context.Bookings.Add(booking);
-                Assert.AreEqual(EntityState.Added, context.Entry(room).State);
-            }
-        }
+        //    var builder = new DbContextOptionsBuilder();
+        //    builder.UseInMemoryDatabase("Booking");
+        //    using (var context = new Jemeppe.Data.JemeppeContext(builder.Options))
+        //    {
+        //        var booking = CreateDummyBooking1(customer, room);
+        //        context.Bookings.Add(booking);
+        //        Assert.AreEqual(EntityState.Added, context.Entry(room).State);
+        //    }
+        //}
     }
 }

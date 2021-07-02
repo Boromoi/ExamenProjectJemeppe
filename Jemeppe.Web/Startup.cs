@@ -29,12 +29,19 @@ namespace Jemeppe.Web
         {
             services.AddDbContext<JemeppeContext>(options =>
                 options.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog=JemeppeData"));
-                    //Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDatabaseDeveloperPageExceptionFilter();
+            //Configuration.GetConnectionString("DefaultConnection")));
+            services.AddTransient<JemeppeDataSeeder>();
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<JemeppeContext>();
+            services.AddDatabaseDeveloperPageExceptionFilter();
+            services.AddIdentity<Data.Model.Customer, IdentityRole>(options => {
+                options.User.RequireUniqueEmail = true;
+            }).AddEntityFrameworkStores<JemeppeContext>();
+
+            //services.AddDefaultIdentity<Data.Model.Customer>(options => options.SignIn.RequireConfirmedAccount = true)
+            //    .AddEntityFrameworkStores<JemeppeContext>();
+
             services.AddControllersWithViews();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

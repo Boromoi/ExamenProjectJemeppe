@@ -1,56 +1,50 @@
 ﻿using Jemeppe.Data.Model;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Jemeppe.Test
+namespace Jemeppe.Data
 {
-    [TestClass]
-    public class GenerateDatabase
+    public class JemeppeDataSeeder
     {
-        //UserManager<Customer> _userManager;
-        //public GenerateDatabase(UserManager<Customer> userManager)
-        //{
-        //    _userManager = userManager;
-        //}
+        JemeppeContext _context;
+        UserManager<Customer> _userManager;
 
-        //public GenerateDatabase(DbContextOptionsBuilder builder)
-        //{
-        //    GenerateCleanDB(builder);
-        //}
+        public JemeppeDataSeeder(JemeppeContext context, UserManager<Customer> userManager)
+        {
+            _context = context;
+            _userManager = userManager;
+        }
 
-        ////[Ignore]
-        //[TestMethod]
-        //public void GenerateCleanDB()
-        //{
-        //    var builder = new DbContextOptionsBuilder();
-        //    builder.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog=JemeppeData");
-        //    GenerateCleanDB(builder);
-        //}
-        
-        //public void GenerateCleanDB(DbContextOptionsBuilder builder)
-        //{
-        //    using (var context = new Jemeppe.Data.JemeppeContext(builder.Options))
-        //    {
-        //        context.Database.EnsureDeleted();
-        //        context.Database.EnsureCreated();
-        //        foreach (var room in CreateRooms())
-        //        {
-        //            context.Add(room);
-        //        }
+        public async Task SeedAsync()
+        {
+            _context.Database.EnsureDeleted();
+            _context.Database.EnsureCreated();
 
-        //        Customer user = new Customer();
-        //        user.Email = "liamvanslingerlandt@hotmail.nl";
-                
-        //        var result = await _userManager.CreateAsync(user, "P@ssw0rd!");
-        //        context.SaveChanges();
-        //    }
-        //}
+            //if the database is filled just return;
+            if (_context.Rooms.Any())
+                return;
+
+            //Add all hotel rooms
+            foreach (var room in CreateRooms())
+            {
+                _context.Add(room);
+            }
+
+            _context.SaveChanges();
+            
+            //Add default admin account
+            Customer admin = new Customer();
+            admin.Email = "liamvanslingerlandt@hotmail.nl";
+            admin.UserName = admin.Email;
+            var result = await _userManager.CreateAsync(admin, "P@ssw0rd!");
+
+            if (result != IdentityResult.Success)
+                throw new InvalidOperationException("Could not create new user");
+        }
 
         public static List<Data.Model.Room> CreateRooms()
         {
@@ -80,6 +74,5 @@ namespace Jemeppe.Test
             };
             return room;
         }
-
     }
 }
