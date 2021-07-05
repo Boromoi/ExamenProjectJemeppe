@@ -29,19 +29,25 @@ namespace Jemeppe.Data.Access
         /// Add a new customer to the database
         /// </summary>
         /// <param name="customer"></param>
-        public async Task<Result> Add(Customer customer, string password)
+        public async Task<Result> AddCustomer(Customer customer, string password)
         {
-            var exisits = await GetCustomer(customer.Email);
+            //check if cusomter exists
+            var exisits = await _userManager.FindByEmailAsync(customer.Email);
             if(exisits != null)
             {
                 return Result.Failed("Cannot create new customer, customer email already exists");
             }
-            customer.Email = customer.Email.ToLowerInvariant();
-            var result = await _userManager.CreateAsync(customer,password);
-            if(result != IdentityResult.Success)
-            {
-                throw new InvalidOperationException("Could not create new user");
-            }
+
+            //Create account
+            var result = await _userManager.CreateAsync(customer, password);
+            if (result != IdentityResult.Success)
+                throw new InvalidOperationException("Could not Add new user");
+
+            //Add customer role to the account
+            var fqUser = await _userManager.FindByEmailAsync(customer.Email);
+            result = await _userManager.AddToRoleAsync(fqUser, "Customer");
+            if (!result.Succeeded)
+                throw new InvalidOperationException("Adding admin role to admin user failed:");
             
             return Result.Success();
         }
@@ -55,7 +61,6 @@ namespace Jemeppe.Data.Access
         {
             email = email.ToLowerInvariant();
             Customer customer = await _userManager.FindByEmailAsync(email);
-            //return _context.Customers.SingleOrDefault(c => c.Email==email);
             return customer;
         }
     }

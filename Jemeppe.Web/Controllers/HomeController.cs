@@ -33,7 +33,7 @@ namespace Jemeppe.Web.Controllers
         //Login-Register Page.
         public IActionResult SignIn()
         {
-            return View();
+            return RedirectToAction("Login", "Account");
         }
 
         //De page waar je al het contact info vind van het hotel.

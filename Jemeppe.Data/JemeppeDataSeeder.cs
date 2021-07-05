@@ -12,11 +12,13 @@ namespace Jemeppe.Data
     {
         JemeppeContext _context;
         UserManager<Customer> _userManager;
+        RoleManager<IdentityRole> _roleManager;
 
-        public JemeppeDataSeeder(JemeppeContext context, UserManager<Customer> userManager)
+        public JemeppeDataSeeder(JemeppeContext context, UserManager<Customer> userManager, RoleManager<IdentityRole> roleManager)
         {
             _context = context;
             _userManager = userManager;
+            _roleManager = roleManager;
         }
 
         public async Task SeedAsync()
@@ -35,15 +37,32 @@ namespace Jemeppe.Data
             }
 
             _context.SaveChanges();
-            
+
+            //Create the roles that the user can have
+            var result = await _roleManager.CreateAsync(new IdentityRole("Admin"));
+            result = await _roleManager.CreateAsync(new IdentityRole("Manager"));
+            result = await _roleManager.CreateAsync(new IdentityRole("Customer"));
+            if (result != IdentityResult.Success)
+                throw new InvalidOperationException("Could not add role");
+
             //Add default admin account
             Customer admin = new Customer();
             admin.Email = "liamvanslingerlandt@hotmail.nl";
             admin.UserName = admin.Email;
-            var result = await _userManager.CreateAsync(admin, "P@ssw0rd!");
-
+            admin.Firstname = "Liam";
+            admin.Lastname = "van Slingerlandt";
+            admin.PhoneNumber = "0123456789";
+            result = await _userManager.CreateAsync(admin, "P@ssw0rd!");
             if (result != IdentityResult.Success)
                 throw new InvalidOperationException("Could not create new user");
+
+            //Add the Admin role to the admin account
+            var fqAdmin = await _userManager.FindByEmailAsync(admin.Email);
+            result = await _userManager.AddToRoleAsync(fqAdmin, "Admin");
+            if (!result.Succeeded)
+                throw new InvalidOperationException("Adding admin role to admin user failed:");
+            
+           
         }
 
         public static List<Data.Model.Room> CreateRooms()
