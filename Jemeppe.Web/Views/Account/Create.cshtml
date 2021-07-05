@@ -1,0 +1,45 @@
+﻿@model Jemeppe.Web.Models.RegisterViewModel
+
+@{
+    ViewBag.Title = "Registration";
+}
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
+<form method="post">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger" />
+            <div class="form-group">
+                <input type="text" asp-for="UserName" placeholder="Your Email" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="password" asp-for="Password" placeholder="Password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="password" asp-for="PasswordValidation" placeholder="Password Validation" />
+                <span asp-validation-for="PasswordValidation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="text" asp-for="Firstname" placeholder="First name" />
+                <span asp-validation-for="Firstname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="text" asp-for="Lastname" placeholder="Last name" />
+                <span asp-validation-for="Lastname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="text" asp-for="Phonenumber" placeholder="Phone number" />
+                <span asp-validation-for="Phonenumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+</form>

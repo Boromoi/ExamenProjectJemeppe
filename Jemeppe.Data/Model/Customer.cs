@@ -10,7 +10,14 @@ namespace Jemeppe.Data.Model
     /// Customer information
     /// </summary>
     public class Customer: IdentityUser
-    { 
+    {
+        /// <summary>
+        /// Fist name
+        /// </summary>
+        public string Firstname { get; set; }
+        //Last name
+        public string Lastname { get; set; }
+
         public List<Booking> Bookings { get; set; }
     }
 }

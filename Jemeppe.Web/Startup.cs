@@ -1,4 +1,5 @@
 using Jemeppe.Data;
+using Jemeppe.Data.Access;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +28,8 @@ namespace Jemeppe.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<CustomerAccess>();
+
             services.AddDbContext<JemeppeContext>(options =>
                 options.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog=JemeppeData"));
             //Configuration.GetConnectionString("DefaultConnection")));
@@ -36,6 +39,8 @@ namespace Jemeppe.Web
             services.AddIdentity<Data.Model.Customer, IdentityRole>(options => {
                 options.User.RequireUniqueEmail = true;
             }).AddEntityFrameworkStores<JemeppeContext>();
+
+            services.AddAuthorization();
 
             //services.AddDefaultIdentity<Data.Model.Customer>(options => options.SignIn.RequireConfirmedAccount = true)
             //    .AddEntityFrameworkStores<JemeppeContext>();
