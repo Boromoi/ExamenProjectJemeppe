@@ -1,20 +1,34 @@
-﻿@{
+﻿@model Jemeppe.Web.Models.BookingViewModel
+
+@{
     ViewData["Title"] = "De Rode Kamer";
 }
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
 <section class="booking">
-    <div class="container"> 
+    <div class="container">
         <div class="row">
-            <form action="" class="form">
+            <form method="post" class="form">
                 <div class="col-6">
                     <div class="input-group">
                         <label for="check-in" class="input-label">Check in</label>
-                        <input type="date" class="input" id="check-in" />
+                        <input type="date" asp-for="StartDatum" class="input" id="check-in" />
+                        <span asp-validation-for="StartDatum" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="input-group">
-                        <label for="check-out" class="input-label">Check out</label>
-                        <input type="date" class="input" id="check-out" />
+                        <label for="check-in" class="input-label">Check in</label>
+                        <input type="date" asp-for="EindDatum" class="input" id="check-in" />
+                        <span asp-validation-for="EindDatum" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <input type="submit" value="Reserveer" class="btn btn-success" />
                     </div>
                 </div>
             </form>

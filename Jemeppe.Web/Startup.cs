@@ -29,6 +29,8 @@ namespace Jemeppe.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<CustomerAccess>();
+            services.AddScoped<BookingAccess>();
+            services.AddScoped<RoomAccess>();
 
             services.AddDbContext<JemeppeContext>(options =>
                 options.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog=JemeppeData"));

@@ -24,5 +24,10 @@ namespace Jemeppe.Data.Access
         {
             return _context.Rooms.ToArray();
         }
+
+        internal Model.Room GetRoomById(int roomId)
+        {
+            return GetAllRooms()[4];
+        }
     }
 }
