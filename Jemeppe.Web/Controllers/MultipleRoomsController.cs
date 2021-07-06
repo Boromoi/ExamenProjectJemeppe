@@ -1,5 +1,7 @@
-﻿using Jemeppe.Web.Models;
+﻿using Jemeppe.Data.Access;
+using Jemeppe.Web.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -13,50 +15,139 @@ namespace Jemeppe.Web.Controllers
     public class MultipleRoomsController : Controller
     {
         private readonly ILogger<MultipleRoomsController> _logger;
+        private BookingAccess _bookingAccess;
 
-        public MultipleRoomsController(ILogger<MultipleRoomsController> logger)
+        public MultipleRoomsController(ILogger<MultipleRoomsController> logger, BookingAccess bookingAccess)
         {
             _logger = logger;
+            _bookingAccess = bookingAccess;
         }
 
+        [HttpGet]
+        public IActionResult DeDerdeKamer()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult DeDerdeKamer(BookingViewModel model)
+        {
+            var email = User.Identity.Name;
+            var startDate = DateTime.Parse(model.StartDatum);
+            var endDate = DateTime.Parse(model.EindDatum);
+            _bookingAccess.CreateBooking(email, 4, startDate, endDate);
+            return View();
+        }
+
+        [HttpGet]
         public IActionResult DeRodeKamer()
         {
             return View();
         }
 
+        [HttpPost]
+        public IActionResult DeRodeKamer(BookingViewModel model)
+        {
+            var email = User.Identity.Name;
+            var startDate = DateTime.Parse(model.StartDatum);
+            var endDate = DateTime.Parse(model.EindDatum);
+            _bookingAccess.CreateBooking(email, 1, startDate, endDate);
+            return View();
+        }
+
+        [HttpGet]
         public IActionResult DeAvondenKamer()
         {
             return View();
         }
 
+        [HttpPost]
+        public IActionResult DeAvondenKamer(BookingViewModel model)
+        {
+            var email = User.Identity.Name;
+            var startDate = DateTime.Parse(model.StartDatum);
+            var endDate = DateTime.Parse(model.EindDatum);
+            _bookingAccess.CreateBooking(email, 2, startDate, endDate);
+            return View();
+        }
+
+        [HttpGet]
         public IActionResult DeDonkereKamer()
         {
             return View();
         }
 
+        [HttpPost]
+        public IActionResult DeDonkereKamer(BookingViewModel model)
+        {
+            var email = User.Identity.Name;
+            var startDate = DateTime.Parse(model.StartDatum);
+            var endDate = DateTime.Parse(model.EindDatum);
+            _bookingAccess.CreateBooking(email, 5, startDate, endDate);
+            return View();
+        }
+
+        [HttpGet]
         public IActionResult DeDriestuiversKamer()
         {
             return View();
         }
 
+        [HttpPost]
+        public IActionResult DeDriestuiversKamer(BookingViewModel model)
+        {
+            var email = User.Identity.Name;
+            var startDate = DateTime.Parse(model.StartDatum);
+            var endDate = DateTime.Parse(model.EindDatum);
+            _bookingAccess.CreateBooking(email, 7, startDate, endDate);
+            return View();
+        }
+
+        [HttpGet]
         public IActionResult DeGeheimeKamer()
         {
             return View();
         }
 
+        [HttpPost]
+        public IActionResult DeGeheimeKamer(BookingViewModel model)
+        {
+            var email = User.Identity.Name;
+            var startDate = DateTime.Parse(model.StartDatum);
+            var endDate = DateTime.Parse(model.EindDatum);
+            _bookingAccess.CreateBooking(email, 8, startDate, endDate);
+            return View();
+        }
+
+        [HttpGet]
         public IActionResult DeOpperlandseKamer()
         {
             return View();
         }
 
+        [HttpPost]
+        public IActionResult DeOpperlandseKamer(BookingViewModel model)
+        {
+            var email = User.Identity.Name;
+            var startDate = DateTime.Parse(model.StartDatum);
+            var endDate = DateTime.Parse(model.EindDatum);
+            _bookingAccess.CreateBooking(email, 6, startDate, endDate);
+            return View();
+        }
+
+        [HttpGet]
         public IActionResult DeVersierdeKamer()
         {
             return View();
         }
 
-        [Authorize]
-        public IActionResult DeDerdeKamer()
+        [HttpPost]
+        public IActionResult DeVersierdeKamer(BookingViewModel model)
         {
+            var email = User.Identity.Name;
+            var startDate = DateTime.Parse(model.StartDatum);
+            var endDate = DateTime.Parse(model.EindDatum);
+            _bookingAccess.CreateBooking(email, 3, startDate, endDate);
             return View();
         }
 
