@@ -1,0 +1,54 @@
+﻿@model IEnumerable<BookingViewModel>
+@{
+    ViewBag.Title = "Bookings overview Page";
+}
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
+<form method="post">
+    <div class="row">
+        <div class="col">
+            <label type="text">Kamer naam</label>
+        </div>
+        <div class="col">
+            <label type="text">Voornaam</label>
+        </div>
+        <div class="col">
+            <label type="text">Achternaam</label>
+        </div>
+        <div class="col">
+            <label type="text">Start Datum</label>
+        </div>
+        <div class="col">
+            <label type="text">Eind Datum</label>
+        </div>
+        <div class="col">
+            <label type="text">Bedrag</label>
+        </div>
+    </div>
+    @foreach (var booking in Model)
+    {
+<div class="row">
+    <div class="col">
+        <label type="text">@booking.Kamer</label>
+    </div>
+    <div class="col">
+        <label type="text">@booking.FirstName</label>
+    </div>
+    <div class="col">
+        <label type="text">@booking.LastName</label>
+    </div>
+    <div class="col">
+        <label type="text">@booking.StartDatum</label>
+    </div>
+    <div class="col">
+        <label type="text">@booking.EindDatum</label>
+    </div>
+    <div class="col">
+        <label type="text">@booking.Prijs</label>
+    </div>
+</div>
+    }
+</form>

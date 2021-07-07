@@ -27,7 +27,7 @@ namespace Jemeppe.Data.Access
 
         internal Model.Room GetRoomById(int roomId)
         {
-            return GetAllRooms()[4];
+            return _context.Rooms.Single(r => r.Id == roomId);
         }
     }
 }
