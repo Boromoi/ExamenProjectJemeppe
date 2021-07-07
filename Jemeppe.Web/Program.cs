@@ -18,7 +18,7 @@ namespace Jemeppe.Web
             var host = CreateHostBuilder(args).Build();
             //if (args.Length == 1 && args[0].ToLower() == "/seed")
             //{
-                RunSeeding(host);
+            //    RunSeeding(host);
             //}
             //else
             //{

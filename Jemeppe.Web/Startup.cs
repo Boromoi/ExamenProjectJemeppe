@@ -28,9 +28,13 @@ namespace Jemeppe.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<JemeppeContext>(options =>
-                options.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog=JemeppeData")
+                options.UseSqlServer(connectionString)
                 );
+            //services.AddDbContext<JemeppeContext>(options =>
+            //    options.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog=JemeppeData")
+            //    );
             //Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<JemeppeDataSeeder>();
 
