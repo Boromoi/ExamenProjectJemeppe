@@ -29,6 +29,7 @@ namespace Jemeppe.Web.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult DeDerdeKamer(BookingViewModel model)
         {
@@ -44,7 +45,7 @@ namespace Jemeppe.Web.Controllers
         {
             return View();
         }
-
+        [Authorize]
         [HttpPost]
         public IActionResult DeRodeKamer(BookingViewModel model)
         {
@@ -60,7 +61,7 @@ namespace Jemeppe.Web.Controllers
         {
             return View();
         }
-
+        [Authorize]
         [HttpPost]
         public IActionResult DeAvondenKamer(BookingViewModel model)
         {
@@ -77,6 +78,7 @@ namespace Jemeppe.Web.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult DeDonkereKamer(BookingViewModel model)
         {
@@ -92,7 +94,7 @@ namespace Jemeppe.Web.Controllers
         {
             return View();
         }
-
+        [Authorize]
         [HttpPost]
         public IActionResult DeDriestuiversKamer(BookingViewModel model)
         {
@@ -109,6 +111,7 @@ namespace Jemeppe.Web.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult DeGeheimeKamer(BookingViewModel model)
         {
@@ -124,7 +127,7 @@ namespace Jemeppe.Web.Controllers
         {
             return View();
         }
-
+        [Authorize]
         [HttpPost]
         public IActionResult DeOpperlandseKamer(BookingViewModel model)
         {
@@ -140,7 +143,7 @@ namespace Jemeppe.Web.Controllers
         {
             return View();
         }
-
+        [Authorize]
         [HttpPost]
         public IActionResult DeVersierdeKamer(BookingViewModel model)
         {

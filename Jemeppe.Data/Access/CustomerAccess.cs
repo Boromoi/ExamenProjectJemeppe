@@ -51,13 +51,23 @@ namespace Jemeppe.Data.Access
             
             return Result.Success();
         }
-
+        /// <summary>
+        /// Gets the customer data by it's email
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public Customer GetCustomer(string email)
+        {
+            var customer = GetCustomerAsync(email);
+            customer.Wait();
+            return customer.Result;
+        }
         /// <summary>
         /// Get the customer data by it's email address
         /// </summary>
         /// <param name="email"></param>
         /// <returns></returns>
-        public async Task<Customer> GetCustomer(string email)
+        private async Task<Customer> GetCustomerAsync(string email)
         {
             email = email.ToLowerInvariant();
             Customer customer = await _userManager.FindByEmailAsync(email);

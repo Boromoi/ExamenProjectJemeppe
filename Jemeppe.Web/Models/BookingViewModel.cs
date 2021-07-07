@@ -9,5 +9,13 @@ namespace Jemeppe.Web.Models
     {
         public string StartDatum { get; set; }
         public string EindDatum { get; set; }
+
+        public string Kamer { get; set; }
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public string Prijs { get; set; }
     }
 }

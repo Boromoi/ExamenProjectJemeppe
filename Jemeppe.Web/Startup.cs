@@ -28,12 +28,9 @@ namespace Jemeppe.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<CustomerAccess>();
-            services.AddScoped<BookingAccess>();
-            services.AddScoped<RoomAccess>();
-
             services.AddDbContext<JemeppeContext>(options =>
-                options.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog=JemeppeData"));
+                options.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog=JemeppeData")
+                );
             //Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<JemeppeDataSeeder>();
 
@@ -44,6 +41,10 @@ namespace Jemeppe.Web
 
             services.AddAuthorization();
 
+            services.AddScoped<CustomerAccess>();
+            services.AddScoped<BookingAccess>();
+            services.AddScoped<RoomAccess>();
+            
             //services.AddDefaultIdentity<Data.Model.Customer>(options => options.SignIn.RequireConfirmedAccount = true)
             //    .AddEntityFrameworkStores<JemeppeContext>();
 
