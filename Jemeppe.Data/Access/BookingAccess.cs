@@ -28,8 +28,8 @@ namespace Jemeppe.Data.Access
             var booking = new Booking();
             booking.Customer = customer;
             booking.Room = room;
-            booking.Startdate = DateTime.Now.AddDays(1);
-            booking.Enddate = DateTime.Now.AddDays(10);
+            booking.Startdate = startDate;
+            booking.Enddate = endDate;
             _context.Add(booking);
             _context.SaveChanges();
         }

@@ -126,7 +126,7 @@ main.pb-3 {
     color: var(--yellow-solid);
 }
 
-/*De Rode Kamer details page*/
+/*Kamers details page*/
 .DeRodeKamerImage {
     width: 100%;
 }
@@ -140,6 +140,8 @@ main.pb-3 {
     font-size: 22px;
     font-weight: bold;
 }
+
+
 
 /*Start-Eind Datum*/
 .booking {
