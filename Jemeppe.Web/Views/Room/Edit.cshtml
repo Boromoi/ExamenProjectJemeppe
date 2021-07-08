@@ -1,0 +1,56 @@
+﻿@model Jemeppe.Web.Models.RoomViewModel
+
+@{
+    ViewBag.Title = "Edit Room";
+}
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
+<form method="post">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger" />
+            <div class="form-group">
+                <input type="text" asp-for="Name" placeholder="Name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <textarea asp-for="Description"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="text" asp-for="WebLink" placeholder="Weblink" />
+                <span asp-validation-for="WebLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <select asp-for="SelectedRoomType"
+                        asp-items="Html.GetEnumSelectList<Jemeppe.Data.Model.RoomType>()">
+                </select>
+            </div>
+            <div class="form-group">
+                <select asp-for="SelectedHasToilet"
+                        asp-items="Html.GetEnumSelectList<MayBeCheck>()">
+                </select>
+            </div>
+            <div class="form-group">
+                <select asp-for="SelectedHasShower"
+                        asp-items="Html.GetEnumSelectList<MayBeCheck>()">
+                </select>
+            </div>
+            <div class="form-group">
+                <select asp-for="SelectedHasSink"
+                        asp-items="Html.GetEnumSelectList<MayBeCheck>()">
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" asp-for="Price" placeholder="Price" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+</form>

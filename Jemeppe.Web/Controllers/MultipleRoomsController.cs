@@ -16,11 +16,13 @@ namespace Jemeppe.Web.Controllers
     {
         private readonly ILogger<MultipleRoomsController> _logger;
         private BookingAccess _bookingAccess;
+        private RoomAccess _roomAccess;
 
-        public MultipleRoomsController(ILogger<MultipleRoomsController> logger, BookingAccess bookingAccess)
+        public MultipleRoomsController(ILogger<MultipleRoomsController> logger, BookingAccess bookingAccess, RoomAccess roomAccess)
         {
             _logger = logger;
             _bookingAccess = bookingAccess;
+            _roomAccess = roomAccess;
         }
 
         [HttpGet]
@@ -59,8 +61,12 @@ namespace Jemeppe.Web.Controllers
         [HttpGet]
         public IActionResult DeAvondenKamer()
         {
-            return View();
+            var room = _roomAccess.GetRoomById(2);
+            var viewModel = new BookingViewModel();
+            RoomController.FillRoomViewModelWithRoom(viewModel, room);
+            return View(viewModel);
         }
+
         [Authorize]
         [HttpPost]
         public IActionResult DeAvondenKamer(BookingViewModel model)

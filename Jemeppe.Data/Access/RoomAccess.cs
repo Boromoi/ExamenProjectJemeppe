@@ -25,9 +25,14 @@ namespace Jemeppe.Data.Access
             return _context.Rooms.ToArray();
         }
 
-        internal Model.Room GetRoomById(int roomId)
+        public Model.Room GetRoomById(int roomId)
         {
             return _context.Rooms.Single(r => r.Id == roomId);
+        }
+
+        public void SaveChanges()
+        {
+            _context.SaveChanges();
         }
     }
 }
