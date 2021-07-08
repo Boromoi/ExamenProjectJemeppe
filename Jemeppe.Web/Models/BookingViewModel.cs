@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Jemeppe.Web.Models
 {
-    public class BookingViewModel
+    public class BookingViewModel:RoomViewModel
     {
         public string StartDatum { get; set; }
         public string EindDatum { get; set; }

@@ -31,7 +31,17 @@
                         <input type="submit" value="Reserveer" class="btn btn-success" />
                     </div>
                 </div>
-            </form>
+                @if (User.IsInRole("Admin"))
+                {
+                    <div class="col">
+                        <li class="nav-item">
+                            <a asp-controller="Room"
+                               asp-action="Edit"
+                               asp-route-id="2">Edit Room</a>
+                        </li>
+                    </div>
+                }
+                </form>
         </div>
     </div>
 </section>
@@ -42,14 +52,43 @@
             <img src="~/assets/images/TweePersoonsKamer2.jpg" class="DeRodeKamerImage" />
         </div>
         <div class="col-6">
-            @*<p>Home / De Rode Kamer</p>*@
-            <h1>De Avonden Kamer</h1>
-            <h4>$85/Night</h4>
+            <h1>@Model.Name</h1>
+            <h4>@Model.Price/Night</h4>
             <br />
             <h3>Product Details</h3>
-            <p>Dit is de titel van een roman van Gerard Reve. De kamer ligt op het westen en men kan hier genieten van de mooie zonsondergangen.</p>
-            <p>The room is made to accommodate 2 people.<br /> It has a toilet.    <i class="fa fa-check-square-o"></i><br /> It has a douche.  <i class="fa fa-check-square-o"></i><br /> It has a sink.     <i class="fa fa-check-square-o"></i></p>
+            <p>@Model.Description</p>
+            <p>
+                This is a @Model.SelectedRoomType.ToString() room<br />
+
+                @if (Model.SelectedHasToilet == MayBeCheck.Yes)
+                {
+                    @:It has a toilet.
+                }
+                else if (Model.SelectedHasToilet == MayBeCheck.No)
+                {
+                    @:It does not have a toilet.
+                }
+                <i class="fa fa-check-square-o"></i><br />
+                @if (Model.SelectedHasShower == MayBeCheck.Yes)
+                {
+                    @:It has a shower.
+                }
+                else if (Model.SelectedHasShower == MayBeCheck.No)
+                {
+                    @:It does not have a shower
+                }
+                <i class="fa fa-check-square-o"></i><br />
+                @if (Model.SelectedHasSink == MayBeCheck.Yes)
+                {
+                    @:It has a sink.
+                }
+                else if (Model.SelectedHasSink == MayBeCheck.No)
+                {
+                    @:It does not have a sink.
+                }
+                <i class="fa fa-check-square-o"></i>
+            </p>
+            
         </div>
     </div>
 </div>
-@*email, start eind datum, naam kamer*@
