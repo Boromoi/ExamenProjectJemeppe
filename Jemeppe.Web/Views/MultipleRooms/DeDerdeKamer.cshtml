@@ -12,21 +12,21 @@
     <div class="container">
         <div class="row">
             <form method="post" class="form">
-                <div class="col-6">
+                <div class="col">
                     <div class="input-group">
                         <label for="check-in" class="input-label">Check in</label>
                         <input type="date" asp-for="StartDatum" class="input" id="check-in" />
                         <span asp-validation-for="StartDatum" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col">
                     <div class="input-group">
-                        <label for="check-in" class="input-label">Check in</label>
-                        <input type="date" asp-for="EindDatum" class="input" id="check-in" />
+                        <label for="check-out" class="input-label">Check Out</label>
+                        <input type="date" asp-for="EindDatum" class="input" id="check-out" />
                         <span asp-validation-for="EindDatum" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="row">
+                <div class="col">
                     <div class="form-group">
                         <input type="submit" value="Reserveer" class="btn btn-success" />
                     </div>
@@ -38,10 +38,10 @@
 
 <div class="small-container single-product">
     <div class="row test">
-        <div class="col-6">
+        <div class="col">
             <img src="~/assets/images/FamilyKamer1.jpg" class="DeRodeKamerImage" />
         </div>
-        <div class="col-6">
+        <div class="col">
             @*<p>Home / De Rode Kamer</p>*@
             <h1>De Derde Kamer</h1>
             <h4>$120/Night</h4>

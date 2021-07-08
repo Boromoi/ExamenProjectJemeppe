@@ -37,7 +37,7 @@ namespace Jemeppe.Web.Controllers
                 model.FirstName = booking.Customer.Firstname;
                 model.LastName = booking.Customer.Lastname;
                 model.Kamer = booking.Room.Name;
-                model.Prijs = CalculatePrice(booking); 
+                model.Prijs = CalculatePrice(booking);
                 model.StartDatum = booking.Startdate.ToShortDateString();
                 model.EindDatum = booking.Enddate.ToShortDateString();
                 resultModelCollection.Add(model);
