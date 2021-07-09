@@ -33,6 +33,8 @@ namespace Jemeppe.Data.Model
 
         public string WebLink { get; set; }
 
+        public string ImageUrl { get; set; }
+
 
         public int Id { get; set; }
 

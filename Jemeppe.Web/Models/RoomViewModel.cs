@@ -31,6 +31,8 @@ namespace Jemeppe.Web.Models
 
         [MinLength(5)]
         public string WebLink { get; set; }
+
+        public string ImageUrl { get; set; }
         
         public int Id { get; set; }
     }

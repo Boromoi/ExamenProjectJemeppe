@@ -1,0 +1,45 @@
+﻿@model  IEnumerable<Jemeppe.Web.Models.RoomViewModel> 
+
+@{
+ViewData["Title"] = "Rooms page";
+}
+@section Scripts {
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
+
+<section class="rooms">
+    <div class="roomscontainer">
+        <h5 class="section-head">
+            <span class="heading">Explore</span>
+            <span class="sub-heading">Our beautiful rooms</span>
+        </h5>
+        <div class="grid">
+            @foreach (var room in Model)
+            {
+            <div class="grid-item featured-rooms">
+                <img src="@room.ImageUrl" alt="" class="rooms-image" />
+                <h5 class="rooms-name">@room.Name</h5>
+                <span class="rooms-price">From $@room.Price/Night</span>
+                <div class="rooms-rating">
+                    <i class="fas fa-star rating"></i>
+                    <i class="fas fa-star rating"></i>
+                    <i class="fas fa-star rating"></i>
+                    <i class="fas fa-star rating"></i>
+                    <i class="fas fa-star-half rating"></i>
+                </div>
+                <a class="btn btn-dark" asp-controller="Room"
+                   asp-action="Details"
+                   asp-route-id="@room.Id">Details
+
+                    <span class="dots"><i class="fas fa-ellipsis-h"></i></span>
+                </a>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+
+
+
