@@ -1,6 +1,7 @@
 ﻿using Jemeppe.Data.Access;
 using Jemeppe.Data.Model;
 using Jemeppe.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -72,6 +73,7 @@ namespace Jemeppe.Web.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create(RegisterViewModel model)
         {

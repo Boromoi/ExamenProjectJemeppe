@@ -1,4 +1,5 @@
 ﻿using Jemeppe.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,12 @@ namespace Jemeppe.Web.Controllers
     public class RoomController : Controller
     {
         Data.Access.RoomAccess _roomAccess;
+        Data.Access.BookingAccess _bookingAccess;
 
-        public RoomController(Jemeppe.Data.Access.RoomAccess roomAccess)
+        public RoomController(Jemeppe.Data.Access.RoomAccess roomAccess, Data.Access.BookingAccess bookingAccess)
         {
             _roomAccess = roomAccess;
+            _bookingAccess = bookingAccess;
         }
         public IActionResult Index()
         {
@@ -36,6 +39,18 @@ namespace Jemeppe.Web.Controllers
             return View(vm);
         }
 
+        [Authorize]
+        [HttpPost]
+        public IActionResult Details(BookingViewModel model)
+        {
+            var email = User.Identity.Name;
+            var startDate = DateTime.Parse(model.StartDatum);
+            var endDate = DateTime.Parse(model.EindDatum);
+            _bookingAccess.CreateBooking(email, model.Id, startDate, endDate);
+            return RedirectToAction("Index", "Home");
+        }
+
+        [Authorize]
         public IActionResult Edit(int Id)
         {
             var room = _roomAccess.GetRoomById(Id);
@@ -67,7 +82,8 @@ namespace Jemeppe.Web.Controllers
             vm.ImageUrl = room.ImageUrl;
             vm.Id = room.Id;
         }
-
+        
+        [Authorize]
         [HttpPost]
         public IActionResult Edit(RoomViewModel model)
         {
