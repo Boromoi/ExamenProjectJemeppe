@@ -15,6 +15,27 @@ namespace Jemeppe.Web.Controllers
         {
             _roomAccess = roomAccess;
         }
+        public IActionResult Index()
+        {
+            var rooms = _roomAccess.GetAllRooms();
+            var viewmodels = new List<RoomViewModel>();
+            foreach(var room in rooms)
+            {
+                var vm = new RoomViewModel();
+                FillRoomViewModelWithRoom(vm, room);
+                viewmodels.Add(vm);
+            }
+            return View(viewmodels.ToArray());
+        }
+
+        public IActionResult Details(int Id)
+        {
+            var room = _roomAccess.GetRoomById(Id);
+            var vm = new BookingViewModel();
+            FillRoomViewModelWithRoom(vm, room);
+            return View(vm);
+        }
+
         public IActionResult Edit(int Id)
         {
             var room = _roomAccess.GetRoomById(Id);
@@ -43,6 +64,7 @@ namespace Jemeppe.Web.Controllers
             vm.Name = room.Name;
             vm.WebLink = room.WebLink;
             vm.Description = room.Description;
+            vm.ImageUrl = room.ImageUrl;
             vm.Id = room.Id;
         }
 
